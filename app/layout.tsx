@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import DraggableChatWidget from "../components/DraggableChatWidget";
+import { UIProvider } from "../context/UIContext"; // <--- 1. Import
+import { Providers } from "@/components/Providers";
 
 export const metadata: Metadata = {
   title: "NSG Portfolio",
@@ -14,28 +17,30 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      {/* 1. App Shell Container (100dvh = 100% of visible mobile screen) */}
+    <html lang="en" suppressHydrationWarning> 
+      {/* suppressHydrationWarning is needed by next-themes to prevent errors */}
       <body className="antialiased bg-background h-[100dvh] flex flex-col overflow-hidden">
         
-        {/* Header - Fixed Height */}
-        <div className="flex-none z-50">
-          <Header />
-        </div>
+        {/* Replace UIProvider with Providers */}
+        <Providers>
+          
+          <div className="flex-none z-50">
+             <Header /> 
+             {/* Note: I assume you are importing Header locally */}
+          </div>
 
-        {/* Main Content Area 
-            - flex-1: Fills ALL available space between Header and Footer
-            - pt-16: Space for header
-            - pb-4: Small padding at bottom of scroll area
-        */}
-        <main className="flex-1 overflow-y-auto overflow-x-hidden pt-16 pb-4 scroll-smooth">
-          {children}
-        </main>
+          <main className="flex-1 overflow-y-auto overflow-x-hidden pt-16 pb-4 scroll-smooth relative">
+            {children}
+            <DraggableChatWidget /> 
+            {/* Note: Assuming DraggableChatWidget is imported */}
+          </main>
 
-        {/* Footer - Natural Height (Always visible at bottom) */}
-        <div className="flex-none z-40">
-          <Footer />
-        </div>
+          <div className="flex-none z-40">
+             <Footer />
+             {/* Note: Assuming Footer is imported */}
+          </div>
+
+        </Providers>
 
       </body>
     </html>

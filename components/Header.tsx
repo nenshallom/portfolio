@@ -2,10 +2,28 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, X, Sun, FileText, Bot } from "lucide-react";
+import { Menu, X, Sun, FileText, Bot, Moon } from "lucide-react";
+import { useUI } from "../context/UIContext";
+import { useTheme } from "next-themes";
+import { useEffect } from "react";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { toggleAi, isAiOpen } = useUI();
+
+  // Theme Hooks
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  // Prevent hydration mismatch (wait for client load)
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Helper to toggle
+  const toggleTheme = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
+  };
 
   return (
     <>
@@ -17,15 +35,25 @@ export default function Header() {
         </div>
 
         <div className="flex items-center gap-3">
-          <button className="p-2 border border-dashed border-primary/50 rounded hover:bg-primary/10 transition text-muted hover:text-white">
-            <Sun size={18} />
+          {/* --- THEME TOGGLE BUTTON --- */}
+          <button 
+            onClick={toggleTheme}
+            className="p-2 border border-dashed border-primary/50 rounded hover:bg-primary/10 transition text-muted-foreground hover:text-primary"
+            aria-label="Toggle Theme"
+          >
+            {/* Show nothing until mounted to avoid flickering */}
+            {mounted && (theme === "dark" ? <Sun size={16} /> : <Moon size={16} />)}
           </button>
-          <button className="p-2 border border-dashed border-primary/50 rounded hover:bg-primary/10 transition text-muted hover:text-white font-mono text-xs font-bold">
-            CV
-          </button>
-          <button className="p-2 border border-dashed border-primary/50 rounded hover:bg-primary/10 transition text-muted hover:text-white font-mono text-xs font-bold">
+          {/* --------------------------- */}
+          <button 
+            onClick={toggleAi}
+            className={`p-2 border border-dashed border-primary/50 rounded transition font-mono text-xs font-bold flex items-center justify-center ${
+              isAiOpen ? "bg-primary text-white" : "hover:bg-primary/10 text-muted hover:text-white"
+            }`}
+          >
             AI
           </button>
+          {/* ------------------------- */}
         </div>
 
         <button 

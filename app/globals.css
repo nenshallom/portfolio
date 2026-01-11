@@ -3,10 +3,42 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 255, 255, 255;
+  /* --- LIGHT MODE COLORS --- */
+  --background: 250 250 255;  /* Off-white */
+  --foreground: 15 23 42;     /* Dark Slate Text */
+  
+  /* Primary: Violet-600 (Darker for contrast on white) */
+  --primary: 124 58 237;      
+  
+  /* Secondary/Muted */
+  --muted: 241 245 249;
+  --muted-foreground: 100 116 139;
+
+  /* Card Backgrounds */
+  --card: 255 255 255;
+  --card-foreground: 15 23 42;
 }
 
+.dark {
+  /* --- DARK MODE COLORS (Your current look) --- */
+  --background: 5 5 10;       /* Deep Black/Purple */
+  --foreground: 255 255 255;  /* White Text */
+  
+  /* Primary: Violet-500 (Brighter for dark bg) */
+  --primary: 139 92 246;
+  
+  /* Secondary/Muted */
+  --muted: 30 41 59;
+  --muted-foreground: 148 163 184;
+
+  /* Card Backgrounds */
+  --card: 17 17 43;
+  --card-foreground: 255 255 255;
+}
+
+
 body {
+  @apply bg-background text-foreground transition-colors duration-300;
   color: rgb(var(--foreground-rgb));
   background: #05050A; /* Deep dark background */
   min-height: 100dvh;

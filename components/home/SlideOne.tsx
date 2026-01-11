@@ -45,7 +45,7 @@ export default function SlideOne() {
         </span>
       </div>
 
-      <h2 className="self-start text-lg md:text-2xl font-bold text-white leading-snug font-mono relative z-10">
+      <h2 className="self-start text-lg md:text-2xl font-bold text-black dark:text-white leading-snug font-mono relative z-10">
         Engineering Clean, <br />
         Beautiful & Performant <br />
         Frontend for the Web
