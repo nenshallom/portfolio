@@ -1,4 +1,4 @@
-import { client } from "@/sanity/client";
+import { createClient } from "next-sanity"; // Import createClient directly
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
@@ -11,8 +11,17 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "Missing fields" }, { status: 400 });
     }
 
+    // --- CREATE A WRITE CLIENT JUST FOR THIS ACTION ---
+    const writeClient = createClient({
+      projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
+      dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
+      apiVersion: process.env.NEXT_PUBLIC_SANITY_API_VERSION,
+      useCdn: false, 
+      token: process.env.SANITY_API_TOKEN, // <--- Token used ONLY here
+    });
+
     // 1. Save to Sanity
-    await client.create({
+    await writeClient.create({
       _type: "message",
       email,
       topic,
