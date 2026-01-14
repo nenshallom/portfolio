@@ -5,17 +5,21 @@ export default function SlideOne() {
   return (
     <motion.div className="flex flex-col items-center relative h-full justify-center">
       
-      <div className="w-full flex flex-col gap-1 mb-4 relative z-10">
-        <p className="text-accent font-bold tracking-wide text-left self-start text-sm">
-          Welcome, I&apos;m
-        </p>
-
+      <div className="w-full flex  flex-col relative z-10">
+        
         <div className="flex items-center justify-between w-full">
-            <h1 className="text-3xl md:text-5xl font-black text-left leading-tight flex-1">
-                <span className="text-blue-500 block">Nendang</span>
-                <span className="text-primary block">Shallom</span>
-                <span className="text-blue-500 block">Goshit</span>
-            </h1>
+            <div>
+              <p className="text-accent font-bold tracking-wide text-left self-start text-sm">
+                Hey, I&apos;m
+             </p>
+
+              <h1 className="text-3xl md:text-5xl font-black text-left leading-tight flex-1">
+                  <span className="text-blue-500 block">Nendang</span>
+                  <span className="text-primary block">Shallom</span>
+                  <span className="text-blue-500 block">Goshit</span>
+              </h1>
+            </div>
+
 
             {/* --- PROFILE IMAGE SECTION --- */}
             <div className="w-40 h-40 md:w-40 md:h-40 rounded-full border-[2px] border-gray-800 overflow-hidden shrink-0  bg-gray-900 relative z-20 shadow-xl">
@@ -38,9 +42,9 @@ export default function SlideOne() {
         </div>
       </div>
 
-      <div className="self-start inline-flex items-center gap-2 bg-gray-900 border border-gray-700 rounded-full px-3 py-1.5 mb-4 shadow-lg relative z-10">
-        <span className="text-blue-400 text-xs">💎</span>
-        <span className="text-white text-[10px] md:text-xs font-bold tracking-wider uppercase">
+      <div className="self-start inline-flex items-center gap-2 bg-gray-900 border border-gray-700 rounded-full px-3 py-1.5 mb-1 shadow-lg relative z-10">
+        <span className="text-blue-400 text-[10px]">💎</span>
+        <span className="text-white text-[7px] md:text-xs font-bold tracking-wider uppercase">
           I&apos;m a Curious Catalyst
         </span>
       </div>
