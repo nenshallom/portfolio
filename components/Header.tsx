@@ -48,7 +48,7 @@ export default function Header() {
           <button 
             onClick={toggleAi}
             className={`p-2 border border-dashed border-primary/50 rounded transition font-mono text-xs font-bold flex items-center justify-center ${
-              isAiOpen ? "bg-primary text-white" : "hover:bg-primary/10 text-muted hover:text-white"
+              isAiOpen ? "bg-primary text-white" : "hover:bg-primary/10  hover:text-white"
             }`}
           >
             AI

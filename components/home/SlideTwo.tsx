@@ -11,7 +11,7 @@ export default function SlideTwo() {
       </div>
       
       {/* Reduced text-3xl -> text-xl */}
-      <h2 className="text-xl md:text-3xl font-bold text-white dark:text-black leading-relaxed font-mono mb-8">
+      <h2 className="text-2xl md:text-3xl font-bold text-black dark:text-white leading-relaxed font-mono mb-8">
         I&apos;m a Frontend Developer who cares Deeply about Clarity, Quality and Real-world Impact.
       </h2>
       

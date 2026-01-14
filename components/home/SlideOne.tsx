@@ -48,7 +48,7 @@ export default function SlideOne() {
       <h2 className="self-start text-2xl md:text-3xl font-bold text-black dark:text-white leading-snug font-mono relative z-10">
         Engineering Clean, <br />
         Beautiful & Performant <br />
-        Frontend for the Web
+        Web Solutions
       </h2>
 
        <div className="absolute top-0 right-0 w-40 h-40 bg-primary/10 rounded-full blur-3xl -z-0 pointer-events-none"></div>

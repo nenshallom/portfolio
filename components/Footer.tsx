@@ -36,10 +36,10 @@ export default function Footer() {
       <div className="flex items-center gap-3">
         {/* Socials */}
         <div className="flex gap-2">
-          <a href="https://github.com/nenshallom" target="_blank" className="p-2 border border-dashed border-primary/50 rounded text-white dark:text-black hover:text-primary hover:border-primary transition">
+          <a href="https://github.com/nenshallom" target="_blank" className="p-2 border border-dashed border-primary/50 rounded text-black dark:text-white hover:text-primary hover:border-primary transition">
             <Github size={15} />
           </a>
-          <a href="https://linkedin.com/in/nenshallom/" target="_blank" className="p-2 border border-dashed border-primary/50 rounded text-white dark:text-black hover:text-primary hover:border-primary transition">
+          <a href="https://linkedin.com/in/nenshallom/" target="_blank" className="p-2 border border-dashed border-primary/50 rounded text-black dark:text-white hover:text-primary hover:border-primary transition">
             <Linkedin size={15} />
           </a>
         </div>
@@ -51,10 +51,10 @@ export default function Footer() {
 
         {/* Contact */}
         <div className="flex gap-2">
-          <a href="mailto:sshallom92@email.com" className="p-2 border border-dashed border-primary/50 rounded text-white dark:text-black hover:text-primary hover:border-primary transition">
+          <a href="mailto:sshallom92@email.com" className="p-2 border border-dashed border-primary/50 rounded text-black dark:text-white hover:text-primary hover:border-primary transition">
             <Mail size={15} />
           </a>
-          <a href="tel:+2349065679171" className="p-2 border border-dashed border-primary/50 rounded text-white dark:text-black hover:text-primary hover:border-primary transition">
+          <a href="tel:+2349065679171" className="p-2 border border-dashed border-primary/50 rounded text-black dark:text-white hover:text-primary hover:border-primary transition">
             <Phone size={15} />
           </a>
         </div>

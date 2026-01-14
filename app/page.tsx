@@ -60,7 +60,7 @@ export default function Home() {
   return (
     // 1. Reduced top padding (pt-8 -> pt-4)
     // 2. Added 'no-scrollbar' class to hide the scrolling bar
-    <div className="pt-4 flex flex-col items-center h-full justify-center no-scrollbar">
+    <div className="px-3 pt-4 flex flex-col items-center h-full justify-center no-scrollbar">
       
       {/* 3. CONTAINER HEIGHT CHANGE:
          Changed min-h-[500px] to h-[400px] (fixed compact height for mobile)
