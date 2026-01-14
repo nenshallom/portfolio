@@ -29,13 +29,13 @@ export default async function ToolsPage() {
   ];
 
   return (
-    <div className="px-4 pt-4 min-h-full flex flex-col">
+    <div className="px-3 pt-4 min-h-full flex flex-col">
        
        {/* Main Dashed Container */}
-       <div className="flex-1 w-full border-2 border-dashed border-primary/30 rounded-3xl p-5 md:p-8 relative bg-gradient-to-b from-transparent to-primary/5 flex flex-col gap-8">
+       <div className="flex-1 w-full border-2 border-dashed border-primary/30 rounded-3xl p-3 md:p-8 relative bg-gradient-to-b from-transparent to-primary/5 flex flex-col gap-8">
           
           {/* Title */}
-          <h1 className="text-3xl font-black text-white text-center tracking-wide border-b border-primary/20 pb-4 font-mono">
+          <h1 className="text-3xl font-black text-black dark:text-white text-center tracking-wide border-b border-primary/20 pb-4 font-mono">
              My Tools
           </h1>
 
@@ -52,7 +52,7 @@ export default async function ToolsPage() {
                   {/* Card Header */}
                   <div className="flex items-center gap-3 mb-4 border-b border-gray-800 pb-3">
                     {cat.icon}
-                    <h2 className="text-green-500 font-bold font-mono text-lg tracking-wider">
+                    <h2 className="text-green-500 font-bold font-mono text-md tracking-wider">
                       {cat.title}
                     </h2>
                   </div>

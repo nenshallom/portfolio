@@ -77,10 +77,10 @@ export default function Header() {
       >
           
         {/* Close Button */}
-        <div className="flex justify-end mb-8">
+        <div className="flex justify-end mb-4">
           <button 
             onClick={() => setIsMenuOpen(false)}
-            className="text-black dark:text-white p-2 hover:text-primary transition"
+            className="text-primary dark:text-white p-2 hover:text-primary transition"
           >
             <X size={32} />
           </button>
@@ -92,25 +92,25 @@ export default function Header() {
             [NAVIGATION]
           </div>
 
-          <Link href="/" onClick={() => setIsMenuOpen(false)} className="group border border-primary/30 p-6 rounded-xl bg-primary dark:bg-gray-900/50 hover:border-primary transition flex flex-col gap-2">
+          <Link href="/" onClick={() => setIsMenuOpen(false)} className="group border border-primary/30 p-6 rounded-xl bg-[#11112b] dark:bg-gray-900/50 hover:border-primary transition flex flex-col gap-2">
             <div className="flex items-center gap-3 text-white font-bold text-lg">
               <Sun size={20} className="text-white dark:text-primary"/> HOME
             </div>
-            <p className="text-xs text-accent pl-8">Return to the Amazing Home Page</p>
+            <p className="text-xs text-gray-500 pl-8">Return to the Amazing Home Page</p>
           </Link>
 
-          <Link href="/cv" onClick={() => setIsMenuOpen(false)} className="group border border-primary/30 p-6 rounded-xl bg-primary dark:bg-gray-900/50 hover:border-primary transition flex flex-col gap-2">
+          <Link href="/cv" onClick={() => setIsMenuOpen(false)} className="group border border-primary/30 p-6 rounded-xl bg-[#11112b] dark:bg-gray-900/50 hover:border-primary transition flex flex-col gap-2">
             <div className="flex items-center gap-3 text-white font-bold text-lg">
               <FileText size={20} className="text-white dark:text-primary"/> CV
             </div>
-            <p className="text-xs text-accent pl-8">View my CV professionally</p>
+            <p className="text-xs text-gray-500 pl-8">View my CV professionally</p>
           </Link>
 
-          <Link href="/ai" onClick={() => setIsMenuOpen(false)} className="group border border-primary/30 p-6 rounded-xl bg-primary dark:bg-gray-900/50 hover:border-primary transition flex flex-col gap-2">
+          <Link href="/ai" onClick={() => setIsMenuOpen(false)} className="group border border-primary/30 p-6 rounded-xl bg-[#11112b] dark:bg-gray-900/50 hover:border-primary transition flex flex-col gap-2">
             <div className="flex items-center gap-3 text-white font-bold text-lg">
               <Bot size={20} className="text-white dark:text-primary"/> ASK ME?
             </div>
-            <p className="text-xs text-accent pl-8">Let AI Answer Questions about me</p>
+            <p className="text-xs text-gray-500 pl-8">Let AI Answer Questions about me</p>
           </Link>
         </nav>
         

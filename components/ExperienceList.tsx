@@ -18,7 +18,7 @@ export default function ExperienceList({ jobs }: { jobs: any[] }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.5, delay: index * 0.1 }}
-          className="bg-gray-900/80 border border-primary/20 rounded-xl p-5 relative overflow-hidden group hover:border-primary/50 transition-colors"
+          className="bg-[#11112b] border border-primary/20 rounded-xl p-5 relative overflow-hidden group hover:border-primary/50 transition-colors"
         >
           {/* Header */}
           <div className="flex flex-col gap-1 mb-4 relative z-10">

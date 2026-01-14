@@ -27,9 +27,9 @@ export default function ProjectList({ projects }: { projects: any[] }) {
           </div>
 
           {/* 2. Tech Stack (Green Monospace Text) */}
-          <div className="flex items-center gap-2 mb-4 text-accent text-xs font-mono">
+          <div className="flex items-center gap-2 mb-4 text-primary text-xs font-mono">
             <Wrench size={14} className="shrink-0" />
-            <span className="truncate">
+            <span className="">
               {/* Join the tags array with commas */}
               {project.tags?.join(", ")}
             </span>

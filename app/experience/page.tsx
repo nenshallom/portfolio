@@ -9,10 +9,10 @@ export default async function ExperiencePage() {
   const { experience } = await getProfileData();
 
   return (
-    <div className="px-4 pt-4 min-h-full flex flex-col">
+    <div className="px-3 pt-4 min-h-full flex flex-col">
        
        {/* 2. Main Dashed Container */}
-       <div className="flex-1 w-full border-2 border-dashed border-primary/30 rounded-3xl p-5 relative bg-gradient-to-b from-transparent to-primary/5 flex flex-col gap-8">
+       <div className="flex-1 w-full border-2 border-dashed border-primary/30 rounded-3xl p-3 relative bg-gradient-to-b from-transparent to-primary/5 flex flex-col gap-8">
           
           {/* Title */}
           <h1 className="text-3xl font-black text-black dark:text-white text-center tracking-wide border-b border-primary/20 pb-4">
@@ -27,7 +27,7 @@ export default async function ExperiencePage() {
                <div className="flex items-center gap-2 mb-1 text-green-500 font-bold text-xs uppercase tracking-wider">
                   <CheckCircle2 size={16} /> First Know This
                </div>
-               <p className="text-gray-300 text-xs leading-relaxed font-mono">
+               <p className="text-black dark:text-gray-300 text-xs leading-relaxed font-mono">
                  I&apos;ve built and shipped real-world web applications from SaaS platforms and e-commerce products to AI-powered content systems — with a strong focus on clarity, usability, and performance.
                </p>
             </div>
@@ -37,7 +37,7 @@ export default async function ExperiencePage() {
                <div className="flex items-center gap-2 mb-1 text-green-500 font-bold text-xs uppercase tracking-wider">
                   <CheckCircle2 size={16} /> Then Know This
                </div>
-               <p className="text-gray-300 text-xs leading-relaxed font-mono">
+               <p className="text-black dark:text-gray-300 text-xs leading-relaxed font-mono">
                  I work primarily with React, TypeScript, and modern CSS. I&apos;ve worked in remote, fast-moving environments, contributed to production codebases, and helped evolve products.
                </p>
             </div>
@@ -47,7 +47,7 @@ export default async function ExperiencePage() {
                <div className="flex items-center gap-2 mb-1 text-yellow-500 font-bold text-xs uppercase tracking-wider">
                   <Lock size={16} /> Most Importantly Know This
                </div>
-               <p className="text-gray-300 text-xs leading-relaxed font-mono">
+               <p className="text-black dark:text-gray-300 text-xs leading-relaxed font-mono">
                  I value ownership, good communication, and continuous improvement, and I bring that mindset into every project I work on.
                </p>
             </div>
