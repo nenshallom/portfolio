@@ -59,11 +59,11 @@ export default function DraggableChatWidget() {
         drag
         dragMomentum={false}
         dragConstraints={{ left: 0, right: 0, top: 0, bottom: 500 }}
-        className="fixed bottom-24 right-5 z-50 cursor-grab active:cursor-grabbing"
+        className="fixed bottom-14 right-3 z-50 cursor-grab active:cursor-grabbing"
       >
         <button
           onClick={toggleAi} // Updated to use toggleAi
-          className="w-14 h-14 bg-primary text-white rounded-full shadow-[0_0_20px_rgba(139,92,246,0.5)] flex items-center justify-center border-2 border-white/20 hover:scale-110 transition-transform"
+          className="w-14 h-14 bg-primary bg-opacity-50 text-black dark:text-white rounded-full shadow-[0_0_20px_rgba(139,92,246,0.5)] flex items-center justify-center border-2 border-white/20 hover:scale-110 transition-transform"
         >
           {/* Icons automatically swap based on global state */}
           {isAiOpen ? <X size={24} /> : <Bot size={28} />}
