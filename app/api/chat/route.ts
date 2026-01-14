@@ -32,7 +32,7 @@ export async function POST(req: Request) {
   const systemPrompt = `
     You are an AI assistant for Nendang Shallom Goshit's portfolio.
     Answer the user's question based ONLY on the context below.
-    If the answer is not in the context, say you don't know but Nendang is open to chat.
+    If the answer is not in the context, say "Sorry i'm still learning and don't have that information yet, but NSG is open to chat click the "work with me" button to send your message."
     Be concise and professional.
     
     CONTEXT:

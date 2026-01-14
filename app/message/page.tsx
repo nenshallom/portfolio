@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Lock, Send, CheckCircle, X } from "lucide-react";
+import { Send, CheckCircle, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function MessagePage() {
@@ -30,7 +30,7 @@ export default function MessagePage() {
   };
 
   return (
-    <div className="px-4 pt-4 min-h-full flex flex-col relative">
+    <div className="px-3 pt-4 min-h-full flex flex-col relative">
       
       {/* --- CONFIRMATION MODAL --- */}
       <AnimatePresence>
@@ -81,51 +81,46 @@ export default function MessagePage() {
 
 
       {/* Main Container */}
-      <div className="flex-1 w-full border-2 border-dashed border-cyan-500/30 rounded-3xl p-5 md:p-8 relative bg-[#0a0a16] flex flex-col justify-center items-center">
+      <div className="flex-1 w-full border-2 border-dashed border-cyan-500/30 rounded-3xl py-5 px-3 md:p-8 relative bg-gradient-to-b from-transparent to-primary/5 flex flex-col justify-center items-center">
         
         {/* Available Badge */}
-        <div className="absolute top-6 right-6 flex items-center gap-2 bg-yellow-500/10 border border-yellow-500/30 px-3 py-1.5 rounded-full">
-           <Lock size={12} className="text-yellow-500" />
-           <span className="text-yellow-500 text-[10px] font-bold uppercase tracking-wider">
-             Hey! I'm Available for Work
-           </span>
+        <div className="absolute top-6 right-6 flex items-center gap-2 bg-gray-900 dark:bg-yellow-500/10 border border-yellow-500/30 px-3 py-1.5 rounded-full">
+          <span className="text-yellow-500 text-xs">🔓</span>
+          <span className="text-white dark:text-yellow-500 text-[10px] font-bold uppercase tracking-wider">I&apos;m Available for Work</span>
         </div>
 
         {/* Form Card */}
-        <div className="w-full max-w-md bg-[#0f0f1a] border border-primary/20 rounded-2xl p-6 md:p-8 shadow-2xl relative mt-10">
+        <div className="w-full max-w-md  relative mt-10">
             <form onSubmit={handleSubmit} className="flex flex-col gap-5">
               
               <div className="space-y-2">
-                <label className="text-white font-mono text-sm">Your Email Address</label>
                 <input 
                   type="email"
                   required
                   placeholder="Email Address"
-                  className="w-full bg-[#05050A] border-2 border-dashed border-primary/40 rounded-lg p-3 text-white placeholder:text-gray-600 focus:outline-none focus:border-primary transition-colors font-mono text-sm"
+                  className="w-full  border-2 border-dashed border-primary/40 rounded-sm p-2 text-black dark:text-white placeholder:text-gray-600 focus:outline-none focus:border-primary transition-colors font-mono text-sm"
                   value={formData.email}
                   onChange={(e) => setFormData({...formData, email: e.target.value})}
                 />
               </div>
 
               <div className="space-y-2">
-                <label className="text-white font-mono text-sm">Message Topic</label>
                 <input 
                   type="text"
                   required
-                  placeholder="Let's Talk?"
-                  className="w-full bg-[#05050A] border-2 border-dashed border-primary/40 rounded-lg p-3 text-white placeholder:text-gray-600 focus:outline-none focus:border-primary transition-colors font-mono text-sm"
+                  placeholder="Message Topic?"
+                  className="w-full border-2 border-dashed border-primary/40 rounded-sm p-2 text-black dark:text-white placeholder:text-gray-600 focus:outline-none focus:border-primary transition-colors font-mono text-sm"
                   value={formData.topic}
                   onChange={(e) => setFormData({...formData, topic: e.target.value})}
                 />
               </div>
 
               <div className="space-y-2">
-                <label className="text-white font-mono text-sm">Message</label>
                 <textarea 
                   required
                   rows={4}
-                  placeholder="I typically Reply Messages within 2 hours"
-                  className="w-full bg-[#05050A] border-2 border-dashed border-primary/40 rounded-lg p-3 text-white placeholder:text-gray-600 focus:outline-none focus:border-primary transition-colors font-mono text-sm resize-none"
+                  placeholder="Your Message..."
+                  className="w-full border-2 border-dashed border-primary/40 rounded-sm p-2 text-black dark:text-white placeholder:text-gray-600 focus:outline-none focus:border-primary transition-colors font-mono text-sm resize-none"
                   value={formData.message}
                   onChange={(e) => setFormData({...formData, message: e.target.value})}
                 />
@@ -134,7 +129,7 @@ export default function MessagePage() {
               <button 
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 rounded-lg shadow-[0_0_20px_rgba(139,92,246,0.4)] mt-2 transition-all active:scale-95 disabled:opacity-50 flex items-center justify-center gap-2"
+                className="w-full bg-primary hover:bg-primary/90 text-white font-bold py-2 rounded-lg shadow-[0_0_20px_rgba(139,92,246,0.4)]  transition-all active:scale-95 disabled:opacity-50 flex items-center justify-center gap-2"
               >
                 {isSubmitting ? "Sending..." : "Send Message"}
                 {!isSubmitting && <Send size={18} />}

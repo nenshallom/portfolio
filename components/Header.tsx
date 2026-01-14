@@ -30,9 +30,9 @@ export default function Header() {
       {/* --- TOP HEADER (Unchanged) --- */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-dashed border-primary/30 h-16 flex items-center justify-between px-4">
         
-        <div className="font-bold text-2xl tracking-wider text-primary">
+        <Link href="/" className="font-bold text-2xl tracking-wider text-primary">
           NSG
-        </div>
+        </Link>
 
         <div className="flex items-center gap-3">
           {/* --- THEME TOGGLE BUTTON --- */}

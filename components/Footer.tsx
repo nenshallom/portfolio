@@ -26,7 +26,7 @@ export default function Footer() {
       <div className="flex justify-center mb-3">
       <Link 
   href="/message" 
-  className="border border-dashed border-primary/50 text-primary/70 px-4 py-1 text-[10px] tracking-widest rounded-full uppercase hover:bg-primary hover:text-white transition-colors"
+  className="border border-dashed border-primary/70 text-primary px-4 py-1 text-[10px] tracking-widest rounded-full uppercase hover:bg-primary hover:text-white transition-colors"
 >
   Work with Me ? 
 </Link>
