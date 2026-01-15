@@ -6,7 +6,7 @@ export default async function ProjectsPage() {
   const { projects } = await getProfileData();
 
   return (
-    <div className="px-3 pt-4 min-h-full flex justify-center">
+    <div className="px-3 min-h-full flex justify-center">
        
        {/* 2. Main Dashed Container */}
        <div className="flex-1 max-w-[700px] border-2 border-dashed border-primary/30 rounded-3xl p-3 relative bg-gradient-to-b from-transparent to-primary/5 flex flex-col gap-8">

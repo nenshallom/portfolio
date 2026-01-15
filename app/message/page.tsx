@@ -30,7 +30,7 @@ export default function MessagePage() {
   };
 
   return (
-    <div className="px-3 pt-4 min-h-full flex justify-center relative">
+    <div className="px-3 min-h-full flex justify-center relative">
       
       {/* --- CONFIRMATION MODAL --- */}
       <AnimatePresence>

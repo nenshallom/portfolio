@@ -6,7 +6,7 @@ export default async function CvPage() {
   const { profile, experience, projects, education } = await getProfileData();
 
   return (
-    <div className="px-3 pt-4 min-h-full flex flex-col">
+    <div className="px-3 min-h-full flex flex-col">
       
       {/* Main Dashed Container */}
       <div className="flex-1 w-full border-2 border-dashed border-primary/30 rounded-3xl p-3 md:p-8 relative bg-gradient-to-b from-transparent to-primary/5 flex flex-col gap-8 overflow-hidden">

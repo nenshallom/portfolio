@@ -29,7 +29,7 @@ export default function RootLayout({
              {/* Note: I assume you are importing Header locally */}
           </div>
 
-          <main className="flex-1 overflow-y-auto overflow-x-hidden pt-16 pb-4 scroll-smooth relative">
+          <main className="flex-1 overflow-y-auto overflow-x-hidden pt-10 pb-4 scroll-smooth relative">
             {children}
             <DraggableChatWidget /> 
             {/* Note: Assuming DraggableChatWidget is imported */}
