@@ -7,8 +7,8 @@ export default function Footer() {
   return (
     // REMOVED "fixed bottom-0 left-0 right-0"
     // ADDED "w-full"
-    <footer className="w-full z-40 bg-background/95 backdrop-blur-md pb-6 pt-2 px-4">
-      
+    <footer className="flex justify-center z-40 bg-background/95 backdrop-blur-md pb-6 pt-2 px-4">
+      <div className="w-[700px]">
       {/* 1. Navigation Tabs */}
       <div className="flex justify-between gap-2 mb-2 text-xs font-mono">
         <Link href="/projects" className="flex-1 text-center py-1 border border-dashed border-primary text-primary hover:bg-primary/10 transition rounded">
@@ -24,12 +24,10 @@ export default function Footer() {
 
       {/* 2. Badge */}
       <div className="flex justify-center mb-3">
-      <Link 
-  href="/message" 
-  className="border border-dashed border-primary/70 text-primary px-4 py-1 text-[10px] tracking-widest rounded-full uppercase hover:bg-primary hover:text-white transition-colors"
->
-  Work with Me ? 
-</Link>
+      <Link href="/message" 
+        className="border border-dashed border-primary/70 text-primary px-4 py-1 text-[10px] tracking-widest rounded-full uppercase hover:bg-primary hover:text-white transition-colors">
+        Work with Me ? 
+      </Link>
       </div>
 
       {/* 3. Bottom Row */}
@@ -58,6 +56,7 @@ export default function Footer() {
             <Phone size={15} />
           </a>
         </div>
+      </div>
       </div>
     </footer>
   );

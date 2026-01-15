@@ -30,7 +30,7 @@ export default function MessagePage() {
   };
 
   return (
-    <div className="px-3 pt-4 min-h-full flex flex-col relative">
+    <div className="px-3 pt-4 min-h-full flex justify-center relative">
       
       {/* --- CONFIRMATION MODAL --- */}
       <AnimatePresence>
@@ -81,7 +81,7 @@ export default function MessagePage() {
 
 
       {/* Main Container */}
-      <div className="flex-1 w-full border-2 border-dashed border-cyan-500/30 rounded-3xl py-5 px-3 md:p-8 relative bg-gradient-to-b from-transparent to-primary/5 flex flex-col justify-center items-center">
+      <div className="flex-1 max-w-[700px] border-2 border-dashed border-cyan-500/30 rounded-3xl py-5 px-3 md:p-8 relative bg-gradient-to-b from-transparent to-primary/5 flex flex-col justify-center items-center">
         
         {/* Available Badge */}
         <div className="absolute top-6 right-6 flex items-center gap-2 bg-gray-900 dark:bg-yellow-500/10 border border-yellow-500/30 px-3 py-1.5 rounded-full">

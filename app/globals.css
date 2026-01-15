@@ -18,7 +18,9 @@
   --card: 255 255 255;
   --card-foreground: 15 23 42;
 }
-
+@theme {
+  --breakpoint-bm: 20rem;
+}
 .dark {
   /* --- DARK MODE COLORS (Your current look) --- */
   --background: 5 5 10;       /* Deep Black/Purple */

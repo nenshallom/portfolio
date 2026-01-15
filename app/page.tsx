@@ -49,7 +49,7 @@ export default function Home() {
     if (isPaused) return;
 
     const timer = setInterval(() => {
-      paginate(1); // Auto move to next slide
+      paginate(0); // Auto move to next slide
     }, 5000); // 5 Seconds duration
 
     // Cleanup timer on unmount or when dependencies change
@@ -60,14 +60,14 @@ export default function Home() {
   return (
     // 1. Reduced top padding (pt-8 -> pt-4)
     // 2. Added 'no-scrollbar' class to hide the scrolling bar
-    <div className="px-3 pt-4 flex flex-col items-center h-full justify-center no-scrollbar">
+    <div className="px-3 pt-10 flex flex-col items-center h-full justify-center no-scrollbar">
       
       {/* 3. CONTAINER HEIGHT CHANGE:
          Changed min-h-[500px] to h-[400px] (fixed compact height for mobile)
          This ensures it doesn't push the footer off screen.
       */}
       <div 
-        className="w-full h-[420px] md:h-[500px] border-2 border-dashed border-primary/30 rounded-3xl p-5 relative bg-gradient-to-b from-transparent to-primary/5 overflow-hidden flex flex-col"
+        className="max-w-[700px] min-h-full border-2 border-dashed border-primary/30 rounded-3xl p-5 relative bg-gradient-to-b from-transparent to-primary/5 overflow-hidden flex flex-col"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
         onTouchStart={() => setIsPaused(true)}
