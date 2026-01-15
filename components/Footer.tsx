@@ -5,32 +5,19 @@ import { Github, Linkedin, Mail, Phone } from "lucide-react";
 
 export default function Footer() {
   return (
-    // REMOVED "fixed bottom-0 left-0 right-0"
-    // ADDED "w-full"
     <footer className="flex justify-center z-40 bg-background/95 backdrop-blur-md pb-6 pt-2 px-4">
       <div className="w-[700px]">
-      {/* 1. Navigation Tabs */}
-      <div className="flex justify-between gap-2 mb-2 text-xs font-mono">
-        <Link href="/projects" className="flex-1 text-center py-1 border border-dashed border-primary text-primary hover:bg-primary/10 transition rounded">
-          Projects
-        </Link>
-        <Link href="/experience" className="flex-1 text-center py-1 border border-dashed border-primary text-primary hover:bg-primary/10 transition rounded">
-          Experience    
-        </Link>
-        <Link href="/tools" className="flex-1 text-center py-1 border border-dashed border-primary text-primary hover:bg-primary/10 transition rounded">
-          Tools
+      
+      {/* 1. Badge (Navigation removed from here) */}
+      <div className="flex justify-center block mb-3 mt-2">
+        <Link href="/message" 
+          className="border border-dashed border-primary/70 text-primary px-4 py-1 text-[10px] tracking-widest rounded-full uppercase hover:bg-primary hover:text-white transition-colors"
+        >
+          Work with Me ? 
         </Link>
       </div>
 
-      {/* 2. Badge */}
-      <div className="flex justify-center mb-3">
-      <Link href="/message" 
-        className="border border-dashed border-primary/70 text-primary px-4 py-1 text-[10px] tracking-widest rounded-full uppercase hover:bg-primary hover:text-white transition-colors">
-        Work with Me ? 
-      </Link>
-      </div>
-
-      {/* 3. Bottom Row */}
+      {/* 2. Bottom Row */}
       <div className="flex items-center gap-3">
         {/* Socials */}
         <div className="flex gap-2">
