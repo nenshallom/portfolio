@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { 
-  Menu, X, Sun, Moon, 
+  Menu, X, Sun, Moon, House,
   FileText, Bot, Folder, Briefcase, Wrench 
 } from "lucide-react"; // Added Folder, Briefcase, Wrench
 import { useUI } from "../context/UIContext";
@@ -24,9 +24,9 @@ export default function Header() {
   };
 
   const navLinks = [
-    { name: "Projects", href: "/projects", icon: <Folder size={20} className="text-white dark:text-primary"/> },
     { name: "Experience", href: "/experience", icon: <Briefcase size={20} className="text-white dark:text-primary"/> },
-    { name: "Tools", href: "/tools", icon: <Wrench size={20} className="text-white dark:text-primary"/> },
+    { name: "Projects", href: "/projects", icon: <Folder size={20} className="text-white dark:text-primary"/> },
+    { name: "Tool Box", href: "/tools", icon: <Wrench size={20} className="text-white dark:text-primary"/> },
     { name: "CV", href: "/cv", icon: <FileText size={20} className="text-white dark:text-primary"/> },
   ];
 
@@ -110,7 +110,7 @@ export default function Header() {
 
           <Link href="/" onClick={() => setIsMenuOpen(false)} className="group border border-primary/30 p-4 rounded-xl bg-[#11112b] dark:bg-gray-900/50 hover:border-primary transition flex flex-col gap-1">
             <div className="flex items-center gap-3 text-white font-bold text-lg">
-              <Sun size={20} className="text-white dark:text-primary"/> HOME
+              <House size={20} className="text-white dark:text-primary"/> HOME
             </div>
             <p className="text-xs text-gray-500 pl-8">Return to Home</p>
           </Link>

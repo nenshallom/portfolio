@@ -59,7 +59,7 @@ export default function DraggableChatWidget() {
         drag
         dragMomentum={false}
         dragConstraints={{ left: 0, right: 0, top: 0, bottom: 500 }}
-        className="fixed bottom-14 right-3 z-50 cursor-grab active:cursor-grabbing"
+        className="fixed bottom-15 right-3  z-50 cursor-grab active:cursor-grabbing"
       >
         <button
           onClick={toggleAi} // Updated to use toggleAi

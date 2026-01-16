@@ -15,7 +15,7 @@ export default async function ExperiencePage() {
        <div className="flex-1 max-w-[700px] border-2 border-dashed border-primary/30 rounded-3xl p-3 relative bg-gradient-to-b from-transparent to-primary/5 flex flex-col gap-8">
           
           {/* Title */}
-          <h1 className="text-3xl font-black text-black dark:text-white text-center tracking-wide border-b border-primary/20 pb-4">
+          <h1 className="text-3xl text-black dark:text-white text-center tracking-wide border-b border-primary/20 pb-4 font-mono">
             My Experience
           </h1>
 
