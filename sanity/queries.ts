@@ -28,7 +28,6 @@ export async function getProfileData() {
     }
   }`;
 
-  // 2. FIXED: Changed _type == "job" to _type == "experience"
   const experienceQuery = groq`*[_type == "experience"] | order(startDate desc){
     _id,
     company,

@@ -16,15 +16,15 @@ export default async function CvPage() {
            Curriculum Vitae
         </h1>
 
-        {/* --- 1. PERSONAL INFO (Design 1) --- */}
-        <div className="bg-[#11112b] border border-primary/20 rounded-xl p-6 relative overflow-hidden">
+        {/* --- 1. PERSONAL INFO --- */}
+        <div className="dark:bg-[#11112b] border border-primary/20 rounded-xl p-6 relative overflow-hidden">
             {/* Name */}
-            <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
+            <h2 className="text-3xl md:text-4xl font-black text-[#11112b] dark:text-white mb-4">
               {profile.fullName}
             </h2>
 
             {/* Contact Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6 text-sm text-gray-300">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6 text-sm text-[#11112b] dark:text-gray-400">
                {profile.email && (
                  <div className="flex items-center gap-2">
                    <Mail size={16} className="text-primary" /> {profile.email}
@@ -55,7 +55,7 @@ export default async function CvPage() {
             {/* Professional Summary */}
             <div className="mb-6">
                <h3 className="text-green-500 font-bold font-mono text-sm mb-2">Professional Summary</h3>
-               <p className="text-gray-300 text-xs md:text-sm leading-relaxed whitespace-pre-line">
+               <p className="text-[#11112b] dark:text-gray-300 text-xs md:text-sm md:text-justify  leading-relaxed whitespace-pre-line">
                  {profile.summary}
                </p>
             </div>
@@ -80,21 +80,21 @@ export default async function CvPage() {
         </div>
 
 
-        {/* --- 2. EXPERIENCE (Design 2) --- */}
-        <div className="bg-[#11112b] border border-primary/20 rounded-xl p-6">
+        {/* --- 2. EXPERIENCE --- */}
+        <div className="dark:bg-[#11112b] border border-primary/20 rounded-xl p-6">
             <h3 className="text-green-500 font-bold font-mono text-lg mb-6 border-b border-gray-800 pb-2">
               Professional Experience
             </h3>
 
             <div className="flex flex-col gap-8">
               {experience.map((job: any) => (
-                <div key={job._id} className="relative pl-4 border-l-2 border-primary/30">
+                <div key={job._id} className="relative pl-4 border-l-2 border-primary/70">
                    {/* Role & Company */}
                    <div className="flex flex-col md:flex-row md:justify-between md:items-baseline mb-1">
-                      <h4 className="text-white font-bold text-base">
-                        {job.role} <span className="text-gray-500 mx-1">|</span> {job.company}
+                      <h4 className="text-[#11112b] dark:text-white font-bold text-base">
+                        {job.company} <span className="text-primary mx-1">|</span> {job.role}
                       </h4>
-                      <span className="text-xs text-gray-400 font-mono">
+                      <span className="text-xs text-primary font-bold font-mono">
                         {job.location} | {new Date(job.startDate).getFullYear()} - {job.isCurrent ? "Present" : new Date(job.endDate).getFullYear()}
                       </span>
                    </div>
@@ -102,8 +102,8 @@ export default async function CvPage() {
                    {/* Bullets */}
                    <ul className="mt-2 space-y-1">
                      {job.description?.map((point: string, i: number) => (
-                       <li key={i} className="text-xs md:text-sm text-gray-300 flex gap-2">
-                         <span className="text-primary mt-1.5 text-[8px]">●</span>
+                       <li key={i} className="text-xs md:text-sm text-[#11112b] dark:text-gray-400 flex gap-2">
+                         <span className="text-[#11112b] dark:text-white mt-1.5 text-[8px]">●</span>
                          {point}
                        </li>
                      ))}
@@ -113,8 +113,8 @@ export default async function CvPage() {
             </div>
         </div>
 
-        {/* --- 3. PROJECTS (Design 3) --- */}
-        <div className="bg-[#11112b] border border-primary/20 rounded-xl p-6">
+        {/* --- 3. PROJECTS --- */}
+        <div className="dark:bg-[#11112b] border border-primary/20 rounded-xl p-6">
             <h3 className="text-green-500 font-bold font-mono text-lg mb-6 border-b border-gray-800 pb-2">
               Projects
             </h3>
@@ -122,15 +122,15 @@ export default async function CvPage() {
                {projects.map((proj: any) => (
                  <div key={proj._id}>
                     <div className="flex justify-between items-baseline mb-1">
-                       <span className="text-white font-bold text-sm">{proj.title}</span>
-                       <span className="text-xs text-gray-500 font-mono italic">
+                       <span className="text-[#11112b] dark:text-white font-bold text-sm">{proj.title}</span>
+                       <span className="text-xs text-primary font-bold font-mono italic">
                          {proj.tags?.slice(0, 3).join(", ")}
                        </span>
                     </div>
-                    <ul className="space-y-1">
+                    <ul className="space-y-1 ">
                        {proj.description?.slice(0, 2).map((pt: string, i: number) => (
-                          <li key={i} className="text-xs text-gray-400 flex gap-2">
-                             <span className="text-gray-600 mt-1.5 text-[8px]">●</span> {pt}
+                          <li key={i} className="text-xs text-[#11112b] dark:text-white flex gap-2">
+                             <span className="text-[#11112b] dark:text-white mt-1.5 text-[8px]">●</span> {pt}
                           </li>
                        ))}
                     </ul>
@@ -139,16 +139,16 @@ export default async function CvPage() {
             </div>
         </div>
 
-        {/* --- 4. EDUCATION & CERTIFICATIONS (Design 3) --- */}
-        <div className="bg-[#11112b] border border-primary/20 rounded-xl p-6">
+        {/* --- 4. EDUCATION & CERTIFICATIONS --- */}
+        <div className="dark:bg-[#11112b] border border-primary/20 rounded-xl p-6">
             
             {/* Education */}
             <h3 className="text-green-500 font-bold font-mono text-lg mb-4">Education</h3>
             <div className="mb-8 space-y-4">
               {education?.map((edu: any) => (
                 <div key={edu._id}>
-                   <h4 className="text-white font-bold text-sm">{edu.degree}</h4>
-                   <p className="text-xs text-gray-400">
+                   <h4 className="text-[#11112b] dark:text-white font-bold text-sm">{edu.degree}</h4>
+                   <p className="text-xs text-[#11112b] dark:text-white">
                      {edu.school} | {edu.startDate ? new Date(edu.startDate).getFullYear() : ""} - {edu.endDate ? new Date(edu.endDate).getFullYear() : "Present"}
                    </p>
                 </div>
@@ -162,7 +162,7 @@ export default async function CvPage() {
                 <ul className="space-y-2">
                   {profile.certifications.map((cert: any, i: number) => (
                     <li key={i} className="text-xs text-gray-300 flex gap-2 items-center">
-                       <span className="text-primary mt-1 text-[8px] self-start">●</span> 
+                       <span className="text-blue mt-1 text-[8px] self-start">🔗</span> 
                        
                        {/* Check if a link exists */}
                        {cert.link ? (
@@ -170,7 +170,7 @@ export default async function CvPage() {
                            href={cert.link} 
                            target="_blank" 
                            rel="noopener noreferrer"
-                           className="hover:text-primary hover:underline transition-colors decoration-dotted underline-offset-4"
+                           className="text-blue-700 hover:text-primary hover:underline transition-colors decoration-dotted underline-offset-4"
                          >
                            {cert.name}
                          </a>
@@ -189,13 +189,16 @@ export default async function CvPage() {
   );
 }
 
-// Helper Component for Skill Rows
+// --- UPDATED HELPER COMPONENT ---
 function SkillRow({ label, items }: { label: string, items?: string[] }) {
   if (!items || items.length === 0) return null;
   return (
     <div className="text-xs md:text-sm">
-       <span className="text-white font-bold">{label}: </span>
-       <span className="text-gray-400 leading-relaxed">
+       {/* Updated Label to switch colors in Light/Dark mode */}
+       <span className="text-[#11112b] dark:text-white font-bold">{label}: </span>
+       
+       {/* Updated Items to switch colors as requested */}
+       <span className="text-[#11112b] dark:text-white leading-relaxed">
          {items.join(", ")}
        </span>
     </div>

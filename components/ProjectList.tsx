@@ -14,20 +14,20 @@ export default function ProjectList({ projects }: { projects: any[] }) {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.4, delay: index * 0.1 }}
-          className="bg-[#11112b] border border-primary/20 rounded-xl p-5 shadow-xl relative overflow-hidden group hover:border-primary/50 transition-all"
+          className="dark:bg-[#11112b] border border-primary/20 rounded-xl p-5 shadow-xl relative overflow-hidden group hover:border-primary/50 transition-all"
         >
           {/* 1. Header: Icon + Title */}
           <div className="flex items-center gap-3 mb-2">
             <div className="p-2 bg-primary/10 rounded-lg text-primary">
               <Code2 size={24} />
             </div>
-            <h3 className="text-xl font-bold text-white tracking-wide">
+            <h3 className="text-xl font-bold text-primary tracking-wide">
               {project.title}
             </h3>
           </div>
 
           {/* 2. Tech Stack (Green Monospace Text) */}
-          <div className="flex items-center gap-2 mb-4 text-primary text-xs font-mono">
+          <div className="flex items-center gap-2 mb-4 text-green-500 text-xs font-bold font-mono">
             <Wrench size={14} className="shrink-0" />
             <span className="">
               {/* Join the tags array with commas */}
@@ -38,8 +38,8 @@ export default function ProjectList({ projects }: { projects: any[] }) {
           {/* 3. Bullet Points */}
           <ul className="space-y-2 mb-6">
             {project.description?.map((point: string, i: number) => (
-              <li key={i} className="flex gap-3 text-xs text-gray-300 leading-relaxed">
-                <span className="text-white mt-1">•</span>
+              <li key={i} className="flex gap-3 text-xs text-[#11112b] dark:text-gray-300 leading-relaxed">
+                <span className="text-[#11112b] dark:text-white mt-1">•</span>
                 {point}
               </li>
             ))}

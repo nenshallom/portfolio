@@ -30,8 +30,8 @@ export default function Footer() {
         </div>
 
         {/* CTA */}
-        <Link href="/cv" className="flex-1 bg-primary hover:bg-primary/90 text-white font-bold text-sm py-2 rounded shadow-[0_0_15px_rgba(139,92,246,0.5)] text-center uppercase tracking-wide transition transform active:scale-95">
-          View My CV
+        <Link href="/experience" className="flex-1 bg-primary hover:bg-primary/90 text-white font-bold text-sm py-2 rounded shadow-[0_0_15px_rgba(139,92,246,0.5)] text-center uppercase tracking-wide transition transform active:scale-95">
+          My Experience
         </Link>
 
         {/* Contact */}

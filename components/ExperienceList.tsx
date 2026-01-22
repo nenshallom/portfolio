@@ -18,16 +18,16 @@ export default function ExperienceList({ jobs }: { jobs: any[] }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.5, delay: index * 0.1 }}
-          className="bg-[#11112b] border border-primary/20 rounded-xl p-5 relative overflow-hidden group hover:border-primary/50 transition-colors"
+          className="dark:bg-[#11112b] border border-primary/20 rounded-xl p-5 relative overflow-hidden group hover:border-primary/50 transition-colors"
         >
           {/* Header */}
           <div className="flex flex-col gap-1 mb-4 relative z-10">
             <div className="flex items-center gap-2 text-primary font-bold uppercase tracking-widest text-xs">
               <Briefcase size={14} /> {job.company}
             </div>
-            <h3 className="text-xl font-bold text-white">{job.role}</h3>
+            <h3 className="text-xl font-bold text-[#11112b] dark:text-white">{job.role}</h3>
             
-            <div className="flex items-center gap-4 text-[10px] text-gray-400 font-mono mt-1">
+            <div className="flex items-center gap-4 text-[10px] text-green-500 font-bold font-mono mt-1">
                <span className="flex items-center gap-1">
                  <Calendar size={10} /> 
                  {new Date(job.startDate).getFullYear()} - {job.isCurrent ? "Present" : new Date(job.endDate).getFullYear()}
@@ -41,7 +41,7 @@ export default function ExperienceList({ jobs }: { jobs: any[] }) {
           {/* Bullet Points */}
           <ul className="space-y-2 relative z-10">
             {job.description?.map((point: string, i: number) => (
-              <li key={i} className="flex gap-3 text-xs text-gray-300 leading-relaxed">
+              <li key={i} className="flex gap-3 text-xs text-[#11112b] dark:text-gray-300 leading-relaxed">
                 <span className="text-primary mt-1">•</span>
                 {point}
               </li>

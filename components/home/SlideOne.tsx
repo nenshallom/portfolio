@@ -7,13 +7,8 @@ export default function SlideOne() {
       
       <div className="w-full flex  flex-col relative z-10">
         
-      <div className="flex flex-col min-[375px]:flex-row items-center justify-between w-full gap-4">
-      {/* 1. flex-col: Default (mobile-first), stacks items vertically.
-          2. min-[300px]:flex-row: Applies flex-row ONLY when width is > 300px.
-          3. gap-4: Adds space between the text and the image.
-          4. p-4: Added padding so content doesn't touch the border edges.
-      */}
-      
+      <div className="flex flex-col min-[375px]:flex-row items-center justify-between w-full gap-2">
+        
       <div className="w-full">
         <p className="text-accent font-bold tracking-wide text-left self-start text-sm">
           Hey, I&apos;m
