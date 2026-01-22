@@ -20,24 +20,28 @@ export default function DraggableChatWidget() {
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  // --- NEW: State for Attention Animation ---
+  // Animation State
   const [showAttention, setShowAttention] = useState(false);
 
   useEffect(() => {
-    // 1. Show the greeting on mount
-    setShowAttention(true);
+    // 1. Wait 3 seconds before showing the text (Let the button appear first)
+    const showTimer = setTimeout(() => {
+      setShowAttention(true);
+    }, 3000);
 
-    // 2. Hide it after 6 seconds
-    const timer = setTimeout(() => {
+    // 2. Hide the text after 8 seconds (Total 5s visibility)
+    const hideTimer = setTimeout(() => {
       setShowAttention(false);
-    }, 6000);
+    }, 8000);
 
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(showTimer);
+      clearTimeout(hideTimer);
+    };
   }, []);
 
   useEffect(() => {
     if (isAiOpen) {
-      // Stop animation if user opens the chat
       setShowAttention(false); 
       messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
     }
@@ -75,16 +79,29 @@ export default function DraggableChatWidget() {
         drag
         dragMomentum={false}
         dragConstraints={{ left: 0, right: 0, top: 0, bottom: 500 }}
-        // Updated container to stack Tooltip + Button vertically
+        
+        // --- 1. ENTRANCE ANIMATION (Button Appears after load) ---
+        initial={{ opacity: 0, y: 50, scale: 0.5 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ 
+          delay: 1.5,       // Wait 1.5s after page load
+          duration: 0.5,    // Take 0.5s to appear
+          type: "spring",   // Bouncy entrance
+          stiffness: 260,
+          damping: 20
+        }}
+        // ---------------------------------------------------------
+
         className="fixed bottom-14 right-3 z-50 cursor-grab active:cursor-grabbing flex flex-col items-center gap-3"
       >
-        {/* --- NEW: Floating Text Bubble --- */}
+        {/* --- 2. TEXT BUBBLE ANIMATION --- */}
         <AnimatePresence>
           {showAttention && !isAiOpen && (
              <motion.div
                initial={{ opacity: 0, y: 10, scale: 0.8 }}
                animate={{ opacity: 1, y: 0, scale: 1 }}
-               exit={{ opacity: 0, y: 10, scale: 0.8 }}
+               exit={{ opacity: 0, y: 10, scale: 0.8 }} // Smooth fade out
+               transition={{ duration: 0.4, ease: "easeOut" }}
                className="bg-white text-black text-xs font-bold px-4 py-2 rounded-full shadow-xl whitespace-nowrap relative border border-gray-200"
              >
                Chat with my AI
@@ -93,29 +110,28 @@ export default function DraggableChatWidget() {
              </motion.div>
           )}
         </AnimatePresence>
-        {/* ---------------------------------- */}
 
         <motion.button
           onClick={() => {
             toggleAi();
-            setShowAttention(false); // Immediately stop animation on click
+            setShowAttention(false); 
           }}
-          // --- NEW: Bouncing Animation ---
+          // --- 3. BOUNCE ANIMATION (Synced with Text) ---
           animate={showAttention && !isAiOpen ? {
-            y: [0, -10, 0], // Move up and down
-            scale: [1, 1.05, 1] // Pulse slightly
+            y: [0, -8, 0], // Gentle bounce
+            scale: [1, 1.05, 1]
           } : {
             y: 0,
             scale: 1
           }}
           transition={{
-            duration: 2, // Slow, gentle bounce
+            duration: 1.5, 
             repeat: Infinity,
             repeatType: "loop",
             ease: "easeInOut"
           }}
-          // -------------------------------
-          className="w-10 md:w-20 h-10 md:h-20 bg-primary bg-opacity-90 text-white rounded-full shadow-[0_0_20px_rgba(139,92,246,0.5)] flex items-center justify-center border-2 border-white/20 hover:scale-110 transition-transform overflow-hidden relative"
+          // ---------------------------------------------
+          className="w-14 md:w-20 h-14 md:h-20 bg-primary bg-opacity-90 text-white rounded-full shadow-[0_0_20px_rgba(139,92,246,0.5)] flex items-center justify-center border-2 border-white/20 hover:scale-110 transition-transform overflow-hidden relative"
         >
           {isAiOpen ? (
             <X size={24} />
