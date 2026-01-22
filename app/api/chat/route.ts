@@ -24,7 +24,7 @@ export async function POST(req: Request) {
     PROJECTS:
     ${projects.map((p: any) => `
       - Title: ${p.title}
-      - Stack: ${p.tags?.join(", ")}
+      - Stack: ${p.tags?.join(", ")}]\
       - Description: ${p.description?.join(". ")}
     `).join("\n")}
   `;

@@ -2,8 +2,9 @@
 
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Bot, X, Send } from "lucide-react";
-import { useUI } from "../context/UIContext"; // <--- Import Context
+import { X, Send } from "lucide-react"; 
+import Image from "next/image"; 
+import { useUI } from "../context/UIContext";
 
 interface Message {
   id: string;
@@ -12,8 +13,6 @@ interface Message {
 }
 
 export default function DraggableChatWidget() {
-  // REMOVE local state: const [isOpen, setIsOpen] = useState(false);
-  // USE global state:
   const { isAiOpen, toggleAi } = useUI();
   
   const [messages, setMessages] = useState<Message[]>([]);
@@ -21,8 +20,25 @@ export default function DraggableChatWidget() {
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
+  // --- NEW: State for Attention Animation ---
+  const [showAttention, setShowAttention] = useState(false);
+
   useEffect(() => {
-    if (isAiOpen) { // Updated to use isAiOpen
+    // 1. Show the greeting on mount
+    setShowAttention(true);
+
+    // 2. Hide it after 6 seconds
+    const timer = setTimeout(() => {
+      setShowAttention(false);
+    }, 6000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    if (isAiOpen) {
+      // Stop animation if user opens the chat
+      setShowAttention(false); 
       messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
     }
   }, [messages, isAiOpen, isLoading]);
@@ -59,19 +75,65 @@ export default function DraggableChatWidget() {
         drag
         dragMomentum={false}
         dragConstraints={{ left: 0, right: 0, top: 0, bottom: 500 }}
-        className="fixed bottom-14 right-3 z-50 cursor-grab active:cursor-grabbing"
+        // Updated container to stack Tooltip + Button vertically
+        className="fixed bottom-14 right-3 z-50 cursor-grab active:cursor-grabbing flex flex-col items-center gap-3"
       >
-        <button
-          onClick={toggleAi} // Updated to use toggleAi
-          className="w-14 h-14 bg-primary bg-opacity-50 text-black dark:text-white rounded-full shadow-[0_0_20px_rgba(139,92,246,0.5)] flex items-center justify-center border-2 border-white/20 hover:scale-110 transition-transform"
+        {/* --- NEW: Floating Text Bubble --- */}
+        <AnimatePresence>
+          {showAttention && !isAiOpen && (
+             <motion.div
+               initial={{ opacity: 0, y: 10, scale: 0.8 }}
+               animate={{ opacity: 1, y: 0, scale: 1 }}
+               exit={{ opacity: 0, y: 10, scale: 0.8 }}
+               className="bg-white text-black text-xs font-bold px-4 py-2 rounded-full shadow-xl whitespace-nowrap relative border border-gray-200"
+             >
+               Chat with my AI
+               {/* Tiny Arrow pointing down */}
+               <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-white rotate-45 border-b border-r border-gray-200"></div>
+             </motion.div>
+          )}
+        </AnimatePresence>
+        {/* ---------------------------------- */}
+
+        <motion.button
+          onClick={() => {
+            toggleAi();
+            setShowAttention(false); // Immediately stop animation on click
+          }}
+          // --- NEW: Bouncing Animation ---
+          animate={showAttention && !isAiOpen ? {
+            y: [0, -10, 0], // Move up and down
+            scale: [1, 1.05, 1] // Pulse slightly
+          } : {
+            y: 0,
+            scale: 1
+          }}
+          transition={{
+            duration: 2, // Slow, gentle bounce
+            repeat: Infinity,
+            repeatType: "loop",
+            ease: "easeInOut"
+          }}
+          // -------------------------------
+          className="w-10 md:w-20 h-10 md:h-20 bg-primary bg-opacity-90 text-white rounded-full shadow-[0_0_20px_rgba(139,92,246,0.5)] flex items-center justify-center border-2 border-white/20 hover:scale-110 transition-transform overflow-hidden relative"
         >
-          {/* Icons automatically swap based on global state */}
-          {isAiOpen ? <X size={24} /> : <Bot size={28} />}
-        </button>
+          {isAiOpen ? (
+            <X size={24} />
+          ) : (
+            <div className="relative w-full h-full">
+               <Image 
+                 src="/images/myAI2.png" 
+                 alt="My AI" 
+                 fill 
+                 className="object-cover"
+               />
+            </div>
+          )}
+        </motion.button>
       </motion.div>
 
       <AnimatePresence>
-        {isAiOpen && ( // Updated to use isAiOpen
+        {isAiOpen && (
           <motion.div
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -80,11 +142,17 @@ export default function DraggableChatWidget() {
           >
              {/* Header */}
              <div className="bg-primary/10 p-4 border-b border-primary/20 flex items-center gap-2 justify-between">
-                <div className="flex items-center gap-2">
-                    <Bot size={18} className="text-primary" />
+                <div className="flex items-center gap-3">
+                    <div className="relative w-8 h-8 rounded-full overflow-hidden border border-primary/50">
+                        <Image 
+                          src="/images/myAI2.png" 
+                          alt="AI" 
+                          fill 
+                          className="object-cover"
+                        />
+                    </div>
                     <span className="font-bold text-white text-sm">Ask AI about me</span>
                 </div>
-                {/* Close button inside modal */}
                 <button onClick={toggleAi} className="text-gray-400 hover:text-white">
                     <X size={18} />
                 </button>
@@ -99,6 +167,12 @@ export default function DraggableChatWidget() {
                 )}
                 {messages.map((m) => (
                    <div key={m.id} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
+                      {m.role === 'assistant' && (
+                        <div className="w-6 h-6 rounded-full overflow-hidden relative border border-gray-700 mr-2 shrink-0">
+                           <Image src="/images/myAI2.png" alt="AI" fill className="object-cover" />
+                        </div>
+                      )}
+
                       <div className={`max-w-[85%] p-3 rounded-xl text-xs ${
                          m.role === 'user' 
                          ? 'bg-primary text-white rounded-tr-none' 
