@@ -24,12 +24,12 @@ export default function DraggableChatWidget() {
   const [showAttention, setShowAttention] = useState(false);
 
   useEffect(() => {
-    // 1. Wait 3 seconds before showing the text (Let the button appear first)
+    // 1. Wait 3 seconds before showing the text
     const showTimer = setTimeout(() => {
       setShowAttention(true);
     }, 3000);
 
-    // 2. Hide the text after 8 seconds (Total 5s visibility)
+    // 2. Hide the text after 8 seconds
     const hideTimer = setTimeout(() => {
       setShowAttention(false);
     }, 8000);
@@ -80,19 +80,18 @@ export default function DraggableChatWidget() {
         dragMomentum={false}
         dragConstraints={{ left: 0, right: 0, top: 0, bottom: 500 }}
         
-        // --- 1. ENTRANCE ANIMATION (Button Appears after load) ---
+        // --- 1. ENTRANCE ANIMATION ---
         initial={{ opacity: 0, y: 50, scale: 0.5 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ 
-          delay: 1.5,       // Wait 1.5s after page load
-          duration: 0.5,    // Take 0.5s to appear
-          type: "spring",   // Bouncy entrance
+          delay: 1.5,
+          duration: 0.5,
+          type: "spring",
           stiffness: 260,
           damping: 20
         }}
-        // ---------------------------------------------------------
 
-        className="fixed bottom-14 right-3 md:right-28 z-50 cursor-grab active:cursor-grabbing flex flex-col items-center gap-3"
+        className="fixed bottom-14 right-3 z-50 cursor-grab active:cursor-grabbing flex flex-col items-center gap-3"
       >
         {/* --- 2. TEXT BUBBLE ANIMATION --- */}
         <AnimatePresence>
@@ -100,12 +99,11 @@ export default function DraggableChatWidget() {
              <motion.div
                initial={{ opacity: 0, y: 10, scale: 0.8 }}
                animate={{ opacity: 1, y: 0, scale: 1 }}
-               exit={{ opacity: 0, y: 10, scale: 0.8 }} // Smooth fade out
+               exit={{ opacity: 0, y: 10, scale: 0.8 }}
                transition={{ duration: 0.4, ease: "easeOut" }}
                className="bg-white text-black text-xs font-bold px-4 py-2 rounded-full shadow-xl whitespace-nowrap relative border border-gray-200"
              >
                Chat with my AI
-               {/* Tiny Arrow pointing down */}
                <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-white rotate-45 border-b border-r border-gray-200"></div>
              </motion.div>
           )}
@@ -116,9 +114,9 @@ export default function DraggableChatWidget() {
             toggleAi();
             setShowAttention(false); 
           }}
-          // --- 3. BOUNCE ANIMATION (Synced with Text) ---
+          // --- 3. BOUNCE ANIMATION ---
           animate={showAttention && !isAiOpen ? {
-            y: [0, -8, 0], // Gentle bounce
+            y: [0, -8, 0],
             scale: [1, 1.05, 1]
           } : {
             y: 0,
@@ -130,7 +128,6 @@ export default function DraggableChatWidget() {
             repeatType: "loop",
             ease: "easeInOut"
           }}
-          // ---------------------------------------------
           className="w-14 md:w-20 h-14 md:h-20 bg-primary bg-opacity-90 text-white rounded-full shadow-[0_0_20px_rgba(139,92,246,0.5)] flex items-center justify-center border-2 border-white/20 hover:scale-110 transition-transform overflow-hidden relative"
         >
           {isAiOpen ? (
@@ -141,6 +138,7 @@ export default function DraggableChatWidget() {
                  src="/images/myAI2.png" 
                  alt="My AI" 
                  fill 
+                 sizes="(max-width: 768px) 56px, 80px"  // <--- ADDED SIZES (56px on mobile, 80px on desktop)
                  className="object-cover"
                />
             </div>
@@ -164,6 +162,7 @@ export default function DraggableChatWidget() {
                           src="/images/myAI2.png" 
                           alt="AI" 
                           fill 
+                          sizes="32px" // <--- ADDED SIZES (Header icon is small)
                           className="object-cover"
                         />
                     </div>
@@ -185,7 +184,13 @@ export default function DraggableChatWidget() {
                    <div key={m.id} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                       {m.role === 'assistant' && (
                         <div className="w-6 h-6 rounded-full overflow-hidden relative border border-gray-700 mr-2 shrink-0">
-                           <Image src="/images/myAI2.png" alt="AI" fill className="object-cover" />
+                           <Image 
+                             src="/images/myAI2.png" 
+                             alt="AI" 
+                             fill 
+                             sizes="24px" // <--- ADDED SIZES (Chat avatar is tiny)
+                             className="object-cover" 
+                           />
                         </div>
                       )}
 

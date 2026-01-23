@@ -2,19 +2,27 @@
 
 import Link from "next/link";
 import { Github, Linkedin, Mail, Phone } from "lucide-react";
+import { useUI } from "@/context/UIContext"; // <--- Import Context
 
 export default function Footer() {
+  const { toggleContact, isContactOpen } = useUI(); // <--- Use Hook
+
   return (
-    <footer className="flex justify-center z-40 bg-background/95 backdrop-blur-md pb-6 pt-2 px-4">
+    <footer className="flex justify-center z-40 bg-background/95 backdrop-blur-md pb-6 pt-2 px-4 relative">
       <div className="w-[700px]">
       
-      {/* 1. Badge (Navigation removed from here) */}
+      {/* 1. Badge (Converted to Button) */}
       <div className="flex justify-center block mb-3 mt-2">
-        <Link href="/message" 
-          className="border border-dashed border-primary/70 text-primary px-4 py-1 text-[10px] tracking-widest rounded-full uppercase hover:bg-primary hover:text-white transition-colors"
+        <button 
+          onClick={toggleContact}
+          className={`border border-dashed border-primary/70 px-4 py-1 text-[10px] tracking-widest rounded-full uppercase transition-colors ${
+            isContactOpen 
+             ? "bg-primary text-white shadow-[0_0_15px_rgba(139,92,246,0.6)]" 
+             : "text-primary hover:bg-primary hover:text-white"
+          }`}
         >
-          Work with Me ? 
-        </Link>
+          {isContactOpen ? "Close Message" : "Work with Me ?"}
+        </button>
       </div>
 
       {/* 2. Bottom Row */}
