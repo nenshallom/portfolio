@@ -47,7 +47,7 @@ export default async function ToolsPage() {
               cat.items && cat.items.length > 0 && (
                 <div 
                   key={index} 
-                  className="bg-[#11112b] border border-primary/20 rounded-xl p-6 hover:border-primary/50 transition-all shadow-xl flex flex-col"
+                  className="dark:bg-[#11112b] border border-primary/20 rounded-xl p-6 hover:border-primary/50 transition-all shadow-xl flex flex-col"
                 >
                   {/* Card Header */}
                   <div className="flex items-center gap-3 mb-4 border-b border-gray-800 pb-3">
@@ -60,9 +60,9 @@ export default async function ToolsPage() {
                   {/* List of Tools */}
                   <ul className="space-y-2">
                     {cat.items.map((tool: string, i: number) => (
-                      <li key={i} className="flex items-center gap-3 text-gray-300 text-sm font-medium">
+                      <li key={i} className="flex items-center gap-3 text-[#11112b] dark:text-gray-400 text-sm font-medium">
                         {/* Custom White Bullet Dot */}
-                        <span className="w-1.5 h-1.5 bg-white rounded-full shrink-0"></span>
+                        <span className="text-[#11112b] dark:text-white mt-1.5 text-[8px]">●</span>
                         {tool}
                       </li>
                     ))}

@@ -24,10 +24,10 @@ export default function Header() {
   };
 
   const navLinks = [
-    { name: "Experience", href: "/experience", icon: <Briefcase size={20} className="text-white dark:text-primary"/> },
-    { name: "Projects", href: "/projects", icon: <Folder size={20} className="text-white dark:text-primary"/> },
-    { name: "Tool Box", href: "/tools", icon: <Wrench size={20} className="text-white dark:text-primary"/> },
-    { name: "CV", href: "/cv", icon: <FileText size={20} className="text-white dark:text-primary"/> },
+    { name: "Experience", href: "/experience", icon: <Briefcase size={20} /> },
+    { name: "Projects", href: "/projects", icon: <Folder size={20} /> },
+    { name: "Tool Box", href: "/tools", icon: <Wrench size={20}/> },
+    { name: "CV", href: "/cv", icon: <FileText size={20} /> },
   ];
 
   return (
@@ -87,7 +87,7 @@ export default function Header() {
 
       {/* --- MOBILE MENU OVERLAY --- */}
       <div 
-        className={`fixed inset-0 z-[60] bg-background/95 backdrop-blur-md flex flex-col p-6 transition-transform duration-300 ease-in-out ${
+        className={`fixed inset-0 z-[60] bg-background/20 backdrop-blur-md flex flex-col p-3 transition-transform duration-300 ease-in-out ${
           isMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
@@ -108,25 +108,28 @@ export default function Header() {
             [NAVIGATION]
           </div>
 
-          <Link href="/" onClick={() => setIsMenuOpen(false)} className="group border border-primary/30 p-4 rounded-xl bg-[#11112b] dark:bg-gray-900/50 hover:border-primary transition flex flex-col gap-1">
+          <div className="flex flex-col items-center gap-4">
+          <Link href="/" onClick={() => setIsMenuOpen(false)} className="group border border-primary/30 p-4 w-11/12 rounded-xl dark:bg-gray-900/50 hover:border-primary transition flex flex-col gap-1">
             <div className="flex items-center gap-3 text-white font-bold text-lg">
-              <House size={20} className="text-white dark:text-primary"/> HOME
+              <House size={20} className="text-[#11112b] dark:text-primary"/> <span className="text-[#11112b] dark:text-primary">HOME</span>
             </div>
-            <p className="text-xs text-gray-500 pl-8">Return to Home</p>
+            <p className="text-xs tex-[#11112b] dark:text-gray-500 pl-8">Return to Home</p>
           </Link>
+
 
           {navLinks.map((link) => (
             <Link 
               key={link.name} 
               href={link.href} 
               onClick={() => setIsMenuOpen(false)} 
-              className="group border border-primary/30 p-4 rounded-xl bg-[#11112b] dark:bg-gray-900/50 hover:border-primary transition flex flex-col gap-1"
+              className="group w-11/12 border border-primary/30 p-4 rounded-xl dark:bg-gray-900/50 hover:border-primary transition flex flex-col gap-1"
             >
-              <div className="flex items-center gap-3 text-white font-bold text-lg">
+              <div className="flex items-center gap-3 text-[#11112b] dark:text-primary font-bold text-lg">
                 {link.icon} {link.name.toUpperCase()}
               </div>
             </Link>
           ))}
+          </div>
           
         </nav>
         

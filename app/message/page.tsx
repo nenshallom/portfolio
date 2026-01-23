@@ -5,7 +5,7 @@ import { Send, CheckCircle, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function MessagePage() {
-  const [formData, setFormData] = useState({ email: "", topic: "", message: "" });
+  const [formData, setFormData] = useState({ name:"", email: "", topic: "", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showModal, setShowModal] = useState(false); // Controls the modal
 
@@ -20,7 +20,7 @@ export default function MessagePage() {
       });
       if (res.ok) {
         setShowModal(true); // Open Modal
-        setFormData({ email: "", topic: "", message: "" }); // Clear form
+        setFormData({ name:"", email: "", topic: "", message: "" }); // Clear form
       }
     } catch (error) {
       console.error(error);
@@ -92,13 +92,24 @@ export default function MessagePage() {
         {/* Form Card */}
         <div className="w-full max-w-md  relative mt-10">
             <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-              
+
+              <div className="space-y-2">
+                <input 
+                  type="name"
+                  required
+                  placeholder="Name"
+                  className="w-full  border-2 border-dashed border-primary/40 rounded-sm p-2 dark:bg-transparent text-black dark:text-white placeholder:text-gray-600 focus:outline-none focus:border-primary transition-colors font-mono text-sm"
+                  value={formData.name}
+                  onChange={(e) => setFormData({...formData, name: e.target.value})}
+                />
+              </div>
+
               <div className="space-y-2">
                 <input 
                   type="email"
                   required
                   placeholder="Email Address"
-                  className="w-full  border-2 border-dashed border-primary/40 rounded-sm p-2 text-black dark:text-white placeholder:text-gray-600 focus:outline-none focus:border-primary transition-colors font-mono text-sm"
+                  className="w-full  border-2 border-dashed border-primary/40 rounded-sm p-2 dark:bg-transparent text-black dark:text-white placeholder:text-gray-600 focus:outline-none focus:border-primary transition-colors font-mono text-sm"
                   value={formData.email}
                   onChange={(e) => setFormData({...formData, email: e.target.value})}
                 />
@@ -109,7 +120,7 @@ export default function MessagePage() {
                   type="text"
                   required
                   placeholder="Message Topic?"
-                  className="w-full border-2 border-dashed border-primary/40 rounded-sm p-2 text-black dark:text-white placeholder:text-gray-600 focus:outline-none focus:border-primary transition-colors font-mono text-sm"
+                  className="w-full border-2 border-dashed border-primary/40 rounded-sm p-2 dark:bg-transparent text-black dark:text-white placeholder:text-gray-600 focus:outline-none focus:border-primary transition-colors font-mono text-sm"
                   value={formData.topic}
                   onChange={(e) => setFormData({...formData, topic: e.target.value})}
                 />
@@ -120,7 +131,7 @@ export default function MessagePage() {
                   required
                   rows={4}
                   placeholder="Your Message..."
-                  className="w-full border-2 border-dashed border-primary/40 rounded-sm p-2 text-black dark:text-white placeholder:text-gray-600 focus:outline-none focus:border-primary transition-colors font-mono text-sm resize-none"
+                  className="w-full border-2 border-dashed border-primary/40 rounded-sm p-2 text-black dark:text-white placeholder:text-gray-600 dark:bg-transparent focus:outline-none focus:border-primary transition-colors font-mono text-sm resize-none"
                   value={formData.message}
                   onChange={(e) => setFormData({...formData, message: e.target.value})}
                 />

@@ -48,11 +48,6 @@ export default function ExperienceList({ jobs }: { jobs: any[] }) {
             ))}
           </ul>
 
-          {/* Decorative Green Box (Matches Design) */}
-          <div className="absolute bottom-0 right-0 bg-accent/20 w-10 h-10 rounded-tl-xl flex items-center justify-center text-accent">
-             <ChevronDown size={20} />
-          </div>
-
           {/* Subtle Background Gradient */}
           <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
 

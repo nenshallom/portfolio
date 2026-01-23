@@ -92,7 +92,7 @@ export default function DraggableChatWidget() {
         }}
         // ---------------------------------------------------------
 
-        className="fixed bottom-14 right-3 z-50 cursor-grab active:cursor-grabbing flex flex-col items-center gap-3"
+        className="fixed bottom-14 right-3 md:right-28 z-50 cursor-grab active:cursor-grabbing flex flex-col items-center gap-3"
       >
         {/* --- 2. TEXT BUBBLE ANIMATION --- */}
         <AnimatePresence>
