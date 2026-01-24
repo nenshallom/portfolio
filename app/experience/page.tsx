@@ -1,17 +1,13 @@
 import { getProfileData } from "@/sanity/queries";
-import { client } from "@/sanity/client"; // Ensure client is imported if needed for direct fetch, or use helper
+import { client } from "@/sanity/client"; 
 import { CheckCircle2, Lock, ArrowDown, Users } from "lucide-react";
 import ExperienceList from "@/components/ExperienceList";
 
-// We separate the component to allow async data fetching
 export default async function ExperiencePage() {
-  // 1. Fetch Data from Sanity
   const { experience } = await getProfileData();
 
   return (
     <div className="px-3 min-h-full flex justify-center">
-       
-       {/* 2. Main Dashed Container */}
        <div className="flex-1 max-w-[700px] border-2 border-dashed border-primary/30 rounded-3xl p-3 relative bg-gradient-to-b from-transparent to-primary/5 flex flex-col gap-8">
           
           {/* Title */}
@@ -19,7 +15,6 @@ export default async function ExperiencePage() {
             My Experience
           </h1>
 
-          {/* --- INTRO SECTION (Static from Design) --- */}
           <div className="flex flex-col gap-6">
             
             {/* Item 1 */}

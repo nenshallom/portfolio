@@ -7,7 +7,6 @@ interface UIContextType {
   toggleAi: () => void;
   openAi: () => void;
   closeAi: () => void;
-  // --- NEW: Contact Modal State ---
   isContactOpen: boolean;
   toggleContact: () => void;
 }
@@ -16,7 +15,7 @@ const UIContext = createContext<UIContextType | undefined>(undefined);
 
 export function UIProvider({ children }: { children: ReactNode }) {
   const [isAiOpen, setIsAiOpen] = useState(false);
-  const [isContactOpen, setIsContactOpen] = useState(false); // <--- New State
+  const [isContactOpen, setIsContactOpen] = useState(false); 
 
   const toggleAi = () => {
     setIsAiOpen((prev) => !prev);

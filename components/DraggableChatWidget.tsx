@@ -138,7 +138,7 @@ export default function DraggableChatWidget() {
                  src="/images/myAI2.png" 
                  alt="My AI" 
                  fill 
-                 sizes="(max-width: 768px) 56px, 80px"  // <--- ADDED SIZES (56px on mobile, 80px on desktop)
+                 sizes="(max-width: 768px) 56px, 80px" 
                  className="object-cover"
                />
             </div>
@@ -162,7 +162,7 @@ export default function DraggableChatWidget() {
                           src="/images/myAI2.png" 
                           alt="AI" 
                           fill 
-                          sizes="32px" // <--- ADDED SIZES (Header icon is small)
+                          sizes="32px" 
                           className="object-cover"
                         />
                     </div>
@@ -188,7 +188,7 @@ export default function DraggableChatWidget() {
                              src="/images/myAI2.png" 
                              alt="AI" 
                              fill 
-                             sizes="24px" // <--- ADDED SIZES (Chat avatar is tiny)
+                             sizes="24px"
                              className="object-cover" 
                            />
                         </div>

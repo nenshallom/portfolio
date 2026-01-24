@@ -1,4 +1,4 @@
-import { createClient } from "next-sanity"; // Import createClient directly
+import { createClient } from "next-sanity"; 
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
@@ -17,7 +17,7 @@ export async function POST(req: Request) {
       dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
       apiVersion: process.env.NEXT_PUBLIC_SANITY_API_VERSION,
       useCdn: false, 
-      token: process.env.SANITY_API_TOKEN, // <--- Token used ONLY here
+      token: process.env.SANITY_API_TOKEN, 
     });
 
     // 1. Save to Sanity

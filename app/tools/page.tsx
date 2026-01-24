@@ -4,12 +4,11 @@ import { Code2, Wrench, Layout, Layers } from "lucide-react";
 export default async function ToolsPage() {
   const { profile } = await getProfileData();
 
-  // We organize the raw data from Sanity into the 4 categories shown in your design
   const toolCategories = [
     {
       title: "Language & Framework",
       items: profile.skillsLanguages,
-      icon: <Code2 className="text-green-500" size={20} />, // Icon for visual flair
+      icon: <Code2 className="text-green-500" size={20} />, 
     },
     {
       title: "Tools & Systems",
@@ -39,7 +38,6 @@ export default async function ToolsPage() {
              My Tools
           </h1>
 
-          {/* Grid Layout (Responsive: 1 col on mobile, 2 cols on desktop) */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             
             {toolCategories.map((cat, index) => (

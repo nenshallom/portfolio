@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react"; // <--- 1. Import useRef & useEffect
+import { useState, useRef, useEffect } from "react";
 import { Send, Bot, User, Sparkles } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -15,10 +15,8 @@ export default function AIPage() {
   const [inputValue, setInputValue] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  // --- 2. Create the Ref ---
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  // --- 3. Scroll to bottom whenever 'messages' or 'isLoading' changes ---
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, isLoading]);
@@ -64,7 +62,7 @@ export default function AIPage() {
         </div>
 
         {/* Chat Area */}
-        <div className="flex-1 overflow-y-auto no-scrollbar space-y-4 mb-4 pr-2"> {/* Added pr-2 for spacing */}
+        <div className="flex-1 overflow-y-auto no-scrollbar space-y-4 mb-4 pr-2"> 
             
             {messages.length === 0 && (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mt-4">

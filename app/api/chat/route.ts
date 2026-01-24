@@ -1,5 +1,5 @@
 import { openai } from "@ai-sdk/openai";
-import { generateText } from "ai"; // <--- Changed from streamText to generateText
+import { generateText } from "ai"; 
 import { getProfileData } from "@/sanity/queries";
 
 export const maxDuration = 30;

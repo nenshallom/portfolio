@@ -2,10 +2,10 @@
 
 import Link from "next/link";
 import { Github, Linkedin, Mail, Phone } from "lucide-react";
-import { useUI } from "@/context/UIContext"; // <--- Import Context
+import { useUI } from "@/context/UIContext";
 
 export default function Footer() {
-  const { toggleContact, isContactOpen } = useUI(); // <--- Use Hook
+  const { toggleContact, isContactOpen } = useUI();
 
   return (
     <footer className="flex justify-center z-40 bg-background/95 backdrop-blur-md pb-6 pt-2 px-4 relative">

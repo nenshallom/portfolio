@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import SlideOne from "@/components/home/SlideOne";
 import SlideTwo from "@/components/home/SlideTwo";
 
-// Premium animation variants
 const slideVariants = {
   enter: (direction: number) => ({
     x: direction > 0 ? 50 : -50,
@@ -33,10 +32,8 @@ const swipePower = (offset: number, velocity: number) => {
 
 export default function Home() {
   const [[page, direction], setPage] = useState([0, 0]);
-  const [isPaused, setIsPaused] = useState(false); // Track if user is hovering
+  const [isPaused, setIsPaused] = useState(false);
 
-  // Calculate active slide (0 or 1) using modulo for infinite looping
-  // We use Math.abs to handle negative numbers if user swipes backwards
   const slideIndex = Math.abs(page % 2);
 
   const paginate = (newDirection: number) => {
@@ -45,27 +42,20 @@ export default function Home() {
 
   // --- AUTO-PLAY EFFECT ---
   useEffect(() => {
-    // If paused (hovering), don't set the timer
     if (isPaused) return;
 
     const timer = setInterval(() => {
-      paginate(1); // Auto move to next slide
-    }, 4000); // 5 Seconds duration
+      paginate(1); 
+    }, 4000); 
 
-    // Cleanup timer on unmount or when dependencies change
+    // Cleanup timer
     return () => clearInterval(timer);
-  }, [page, isPaused]); // Re-run effect when page changes or pause state changes
+  }, [page, isPaused]); 
 
 
   return (
-    // 1. Reduced top padding (pt-8 -> pt-4)
-    // 2. Added 'no-scrollbar' class to hide the scrolling bar
     <div className="px-3 pt-2 flex flex-col items-center h-full justify-center no-scrollbar">
-      
-      {/* 3. CONTAINER HEIGHT CHANGE:
-         Changed min-h-[500px] to h-[400px] (fixed compact height for mobile)
-         This ensures it doesn't push the footer off screen.
-      */}
+
       <div 
         className="max-w-[700px] min-h-full border-2 border-dashed border-primary/30 rounded-3xl p-5 relative bg-gradient-to-b from-transparent to-primary/5 overflow-hidden flex flex-col"
         onMouseEnter={() => setIsPaused(true)}
@@ -75,7 +65,6 @@ export default function Home() {
       >
         
         <AnimatePresence initial={false} custom={direction} mode="wait">
-          {/* ... animation logic remains same ... */}
           <motion.div
             key={page}
             custom={direction}
@@ -107,10 +96,8 @@ export default function Home() {
 
       </div>
 
-      {/* 4. Tighter spacing for indicators (mt-6 -> mt-4) */}
       <div className="mt-4 w-full max-w-[250px] flex flex-col items-center gap-3">
         
-        {/* Dots */}
         <div className="hidden md:flex gap-3">
           {[0, 1].map((index) => (
             <button
@@ -132,7 +119,7 @@ export default function Home() {
           ))}
         </div>
 
-        {/* Progress Bar - Reduced height h-3 -> h-2 */}
+        {/* Progress Bar  */}
         <div className="h-2 w-full bg-gray-900 rounded-full overflow-hidden relative">
           <motion.div 
             className="h-full bg-gradient-to-r from-blue-500 via-primary to-purple-500 rounded-full relative"

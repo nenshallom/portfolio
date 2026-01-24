@@ -189,15 +189,12 @@ export default async function CvPage() {
   );
 }
 
-// --- UPDATED HELPER COMPONENT ---
+// --- HELPER COMPONENT ---
 function SkillRow({ label, items }: { label: string, items?: string[] }) {
   if (!items || items.length === 0) return null;
   return (
     <div className="text-xs md:text-sm">
-       {/* Updated Label to switch colors in Light/Dark mode */}
-       <span className="text-[#11112b] dark:text-white font-bold">{label}: </span>
-       
-       {/* Updated Items to switch colors as requested */}
+       <span className="text-[#11112b] dark:text-white font-bold">{label}: </span>       
        <span className="text-[#11112b] dark:text-white leading-relaxed">
          {items.join(", ")}
        </span>

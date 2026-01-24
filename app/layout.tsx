@@ -21,7 +21,6 @@ export default function RootLayout({
       {/* suppressHydrationWarning is needed by next-themes to prevent errors */}
       <body className="antialiased bg-background h-[100dvh] flex flex-col overflow-hidden">
         
-        {/* Replace UIProvider with Providers */}
         <Providers>
           
           <div className="flex-none z-50">
@@ -33,7 +32,6 @@ export default function RootLayout({
             <DraggableChatWidget /> 
           </main>
           
-          {/* --- 2. Add Modal Here --- */}
           <ContactModal />
 
           <div className="flex-none z-40">

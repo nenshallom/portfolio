@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 export default function MessagePage() {
   const [formData, setFormData] = useState({ name:"", email: "", topic: "", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [showModal, setShowModal] = useState(false); // Controls the modal
+  const [showModal, setShowModal] = useState(false); 
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -19,8 +19,8 @@ export default function MessagePage() {
         body: JSON.stringify(formData),
       });
       if (res.ok) {
-        setShowModal(true); // Open Modal
-        setFormData({ name:"", email: "", topic: "", message: "" }); // Clear form
+        setShowModal(true);
+        setFormData({ name:"", email: "", topic: "", message: "" }); 
       }
     } catch (error) {
       console.error(error);

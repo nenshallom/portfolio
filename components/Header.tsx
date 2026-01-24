@@ -5,7 +5,7 @@ import Link from "next/link";
 import { 
   Menu, X, Sun, Moon, House,
   FileText, Bot, Folder, Briefcase, Wrench 
-} from "lucide-react"; // Added Folder, Briefcase, Wrench
+} from "lucide-react"; 
 import { useUI } from "../context/UIContext";
 import { useTheme } from "next-themes";
 
@@ -75,7 +75,7 @@ export default function Header() {
             AI
           </button>
 
-          {/* HAMBURGER (Visible only on Mobile) */}
+          {/* HAMBURGER  */}
           <button 
             onClick={() => setIsMenuOpen(true)}
             className="md:hidden bg-primary p-2 rounded text-white hover:bg-primary/80 transition"
