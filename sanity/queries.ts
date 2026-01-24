@@ -18,6 +18,7 @@ export async function getProfileData() {
     githubLink,
     linkedinLink,
     summary,
+    aiKnowledge,
     skillsLanguages,
     skillsTools,
     skillsUiUx,
