@@ -93,7 +93,7 @@ export default function ContactModal() {
                   /* --- FORM STATE --- */
                   <div className="w-full max-w-md relative mt-10">
                      <h2 className="text-2xl font-black text-white text-center mb-6">
-                        Let's Talk
+                        Let's Discuss Solutions for your Needs
                      </h2>
 
                     <form onSubmit={handleSubmit} className="flex flex-col gap-5">

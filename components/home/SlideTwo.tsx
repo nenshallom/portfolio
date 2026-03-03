@@ -10,7 +10,7 @@ export default function SlideTwo() {
       </div>
       
       <h2 className="text-2xl md:text-4xl font-bold text-black dark:text-white leading-relaxed font-mono mb-8">
-        I&apos;m a Frontend Developer who cares Deeply about Clarity, Quality and Real-world Impact.
+        I&apos;m a Developer who cares Deeply about Clarity, Quality, Business Growth and Real Impact.
       </h2>
       
       <div className="self-end mt-auto">

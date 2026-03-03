@@ -21,7 +21,7 @@ export default function Footer() {
              : "text-primary hover:bg-primary hover:text-white"
           }`}
         >
-          {isContactOpen ? "Close Message" : "Work with Me ?"}
+          {isContactOpen ? "Close Message" : "Let's Talk ?"}
         </button>
       </div>
 

@@ -36,8 +36,8 @@ export default function SlideOne() {
 
       <div className="self-start inline-flex items-center gap-2 bg-gray-900 border border-gray-700 rounded-full px-3 py-1.5 mb-1 shadow-lg relative z-10 mt-4">
         <span className="text-blue-400 text-[10px]">💎</span>
-        <span className="text-white text-[7px] md:text-xs font-bold tracking-wider uppercase">
-          I&apos;m a Curious Catalyst
+        <span className="text-white text-[6px] md:text-xs font-bold tracking-wider uppercase">
+          I&apos;m a Growth & Automation Partner
         </span>
       </div>
 
