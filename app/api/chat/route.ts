@@ -1,4 +1,4 @@
-import { openai } from "@ai-sdk/openai";
+import { google } from "@ai-sdk/google"; // 1. Changed import to Google
 import { generateText } from "ai"; 
 import { getProfileData } from "@/sanity/queries";
 
@@ -27,7 +27,7 @@ export async function POST(req: Request) {
     PROJECTS:
     ${projects.map((p: any) => `
       - Title: ${p.title}
-      - Stack: ${p.tags?.join(", ")}]\
+      - Stack: ${p.tags?.join(", ")}
       - Description: ${p.description?.join(". ")}
     `).join("\n")}
   `;
@@ -43,9 +43,9 @@ export async function POST(req: Request) {
     ${context}
   `;
 
-  // 4. Generate a simple text response (No streaming)
+  // 4. Generate a simple text response using Gemini
   const { text } = await generateText({
-    model: openai("gpt-4o-mini"),
+    model: google("gemini-2.5-flash"), // 2. Switched to Gemini model
     system: systemPrompt,
     prompt: lastUserMessage,
   });
